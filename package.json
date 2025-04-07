@@ -1,0 +1,37 @@
+{
+  "name": "socialtap",
+  "version": "2.0.0",
+  "description": "SocialTap client",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "BrokenLH",
+  "license": "MPL-2.0",
+  "dependencies": {
+    
+  },
+  "devDependencies": {
+    "electron": "^35.1.4",
+    "electron-builder": "^26.0.12"
+    
+
+  },
+
+  "build":{
+    "appId": "SocialTap Client",
+    "productName":"SocialTap",
+    "directories":{
+      "output": "dist"
+    },
+    "win":{
+      "target":"nsis"
+    },
+    "mac":{
+     "target":"dmg"
+    },
+    "linux":{
+      "target":"AppImage"
+    }
+  }
+}
