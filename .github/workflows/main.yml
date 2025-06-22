@@ -1,32 +1,28 @@
-name: Build and Publish Windows Electron App
+name: Build Electron App for Linux
 
 on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 
 jobs:
   build:
-    runs-on: windows-latest  # Use Windows runner
+    runs-on: ubuntu-latest  # Use Linux runner
     
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2  # Check out your repository
+      uses: actions/checkout@v2  # Check out the repository
 
     - name: Set up Node.js
-      uses: actions/setup-node@v2  # Set up the Node.js environment
+      uses: actions/setup-node@v2  # Set up Node.js environment
       with:
-        node-version: '16'  # Specify Node.js version
+        node-version: '16'
 
     - name: Install dependencies
       run: npm install 
 
-    - name: Build Windows app
-      run: npx electron-builder -w  # Build for Windows
-      env:
-        CI: true  # Ensure no interactive prompts
+    - name: Build Electron app for Linux
+      run: npx electron-builder --linux  # Build for Linux (AppImage, .deb, .tar.xz, etc.)
 
+  
     
